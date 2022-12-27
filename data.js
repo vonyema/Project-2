@@ -1,5 +1,6 @@
 module.exports= [
     {
+        img:"https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookies-recipe-3.jpg",
         name: "Chocolate Chip Cookies",
         ingredients: [{
             ingredient: "chocolate chips",
