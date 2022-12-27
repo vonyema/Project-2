@@ -3,8 +3,8 @@ const Schema=mongoose.Schema;
 
 const recipeSchema= new Schema({
     name: { type: String, required: true },
-    recipe: {type: String, required: true },
     ingredients:{type:[ingredientSchema], default:undefined},
+    recipe: {type: String, required: true },
     creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'User'
