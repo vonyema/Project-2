@@ -1,27 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Food For The Soul</title>
+<%- include('./partials/head.ejs') %>
 </head>
-<header class="site-header">
-    <div class="container">
-        <h1>Food For The Soul</h1>
-        <h6>A Recipe Book</h6>
-    </div>
-    <div class="container">
-        <nav class="main-nav">
-            <ul class="main-nav-list">
-                <li>Add Recipe</li>
-                <li>About Us</li>
-                <li>Login</li>
-            </ul>
-        </nav>
-</div>
-</header>
+<%- include("./partials/header.ejs")%>
 <body>
     <%for(let rec of recipe){ %>
     <div class="card" style="width: 18rem;">
