@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Food For The Soul</title>
+</head>
+<header class="site-header">
+    <div class="container">
+        <h1>Food For The Soul</h1>
+        <h6>A Recipe Book</h6>
+    </div>
+    <div class="container">
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li>Add Recipe</li>
+                <li>About Us</li>
+                <li>Login</li>
+            </ul>
+        </nav>
+</div>
+</header>
+<body>
+    <%for(let rec of recipe){ %>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%=rec.img%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=rec.name%></h5>
+          <a href="/recipeBook/<%=rec._id%>" class="btn btn-primary">Recipe</a>
+          <%= rec.createdDate %>
+        </div>
+      </div>
+      <%}%>
+</body>
+<style>
+    html{ 
+        display: block;
+        color: blue
+    }
+    img {
+        max-width: 50%;
+        height: auto;
+    }
+    .site-header {
+        width: 960px;
+	max-width: 100%;
+	padding: 20px;
+	margin: 0 auto;
+    .main-header .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.main-nav ul {
+	margin: 1em 0 .5em;
+	text-align: center;
+}
+.main-nav li {
+	display: inline;
+}
+}
+</style>
+</html>

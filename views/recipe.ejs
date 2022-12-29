@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%for(let rec of recipe){ %>
+        <h1><%=rec.name%></h1> 
+        <a href="/recipeBook/<%=rec._id%>"><img src="<%=rec.img%>"></a> 
+        <ul>
+            <% rec.ingredients.forEach(function(ingredients, index){ %>
+                <li class="list-group-item"><%= ingredients %></li>
+              <% }) %>
+                <li>
+                    <% rec.recipe.forEach(function(recipe, index){ %>
+                        <li class="list-group-item"><%= recipe %></li>
+                      <% }) %>
+                </li>
+        <%}%>
+    </ul>
+</body>
+</html>
