@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+    <%- include("./partials/header.ejs")%>
+<body>
+    <form action="/recipeBook/<%=recipe._id%>?_method=PUT" method="POST">
+        <div class="col-12">
+            <h3>Name:</h3>
+            <div class="col-12">
+                <li class="list-group-item"><input type="text" name="name" class="form-control" value="<%=recipe.name%>"/></li>
+            </div>
+            <h3>Ingredients:</h3>
+            <div class="ingredientList">
+                <div class="ingredientsForm mb-1">
+                    <div class="col-12">
+                        <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                            <li class="list-group-item"><input type="text" name="ingredients" class="form-control" value="<%=ingredients%>"></li>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+            <h3>Directions:</h3>
+            <div class="directionList">
+                <div class="directionDiv mb-1"> 
+                    <div class="col-12">
+                        <% recipe.recipe.forEach(function(recipe, index){ %>
+                            <li class="list-group-item"><input type="text" name="recipe" class="form-control"value="<%=recipe%>"></li>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>  
+            Add Image link <input type="text" name="img" /><br /><br />
+            <input type="submit"  value="Update Recipe'"/>
+        </form>
+    <form action="/recipeBook">
+        <input type="submit" value="Back" />
+    </form>  
+    <script>
+    </script>
+    
+</body>
+</html>

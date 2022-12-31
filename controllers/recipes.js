@@ -12,7 +12,7 @@ recipeRouter.get('/seed', (req,res)=> {
             if(err) {
                 res.send(err)
             } else {
-                res.send(data)
+                res.redirect("/recipeBook")
             }
         })
     });
@@ -28,12 +28,41 @@ recipeRouter.get('/', (req,res)=> {
         }
     })
 })
+//New
+recipeRouter.get('/new',(req,res)=>{
+    res.render('new.ejs')
+
+})
+//Delete
+recipeRouter.delete('/:id',(req,res)=>{
+    recipe.findByIdAndRemove(req.params.id, (err)=>{
+        res.redirect("/recipeBook")
+    })
+})
+//Update
+recipeRouter.put('/:id', (req,res)=>{
+    recipe.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,recipe)=>{
+        res.redirect(`/recipeBook/${req.params.id}`)
+    })
+})
+//Create
+recipeRouter.post('/', (req,res)=>{
+    recipe.create(req.body, (err,recipe)=>{
+        res.redirect("/recipeBook")
+    })
+})
+//Edit
+recipeRouter.get('/:id/edit',(req,res)=>{
+    recipe.findByIdAndUpdate(req.params.id,req.body,{new:true},(err, recipe)=>{
+        res.render('edit.ejs',{recipe})
+    })
+})
 //Show
-recipeRouter.get('/:id', (res,req)=>{
-    recipe.findById(res.params.id,(err,recipe)=>{
-        if (err){
+recipeRouter.get('/:id', (req,res)=>{
+    recipe.findById(req.params.id,(err,recipe)=>{
+        if(err) {
             res.send(err)
-        } else{
+        } else {
             res.render('show.ejs',{recipe:recipe})
         }
     })

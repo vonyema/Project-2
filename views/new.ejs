@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+    <%- include("./partials/header.ejs")%>
+<body>
+    <form action="/recipeBook" method="POST">
+        <div class="col-12">
+            <h3>Name:</h3>
+            <div class="col-12">
+                <input type="text" name="name" class="form-control"/>
+            </div>
+            <h3>Ingredients:</h3>
+            <small>Example: Ice</small>
+            <div class="ingredientList">
+                <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn" name="recipe">+ Ingredients</button>
+                <div class="ingredientsForm mb-1">
+                    <div class="col-12">
+                        <input type="text" name="ingredients" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <h3>Directions:</h3>
+            <small>Example: Add pasta to salted water</small>
+            <div class="directionList">
+                <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn" name="recipe">+ Directions</button>
+                <div class="directionDiv mb-1">          
+                    <div class="col-12">
+                        <input type="text" name="recipe" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>  
+            Add Image link <input type="text" name="img" /><br /><br />
+            <input type="submit"  value="Add A Recipe"/>
+        </form>
+    <form action="/recipeBook">
+        <input type="submit" value="Back" />
+    </form>  
+    <script>
+        let addIngredientsBtn = document.getElementById('addIngredientsBtn');
+        let ingredients = document.querySelector('.ingredientList');
+        let ingredientsForm = document.querySelectorAll('.ingredientsForm')[0];
+
+        addIngredientsBtn.addEventListener('click', function(){
+            let newIngredient = ingredientsForm.cloneNode(true);
+            let input = newIngredient.getElementsByTagName('input')[0];
+            input.value ='';
+            ingredients.appendChild(newIngredient);
+        });
+
+        let addDirectionsBtn = document.getElementById('addDirectionsBtn');
+        let directions = document.querySelector('.directionList');
+        let directionDiv = document.querySelectorAll('.directionDiv')[0];
+
+        addDirectionsBtn.addEventListener('click', function(){
+            let newDirection = directionDiv.cloneNode(true);
+            let input = newDirection.getElementsByTagName('input')[0];
+            input.value ='';
+            directions.appendChild(newDirection);
+        });
+    </script>
+    
+</body>
+</html>

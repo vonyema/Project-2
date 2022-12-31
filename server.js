@@ -22,7 +22,6 @@ app.use((req, res, next) => {
 })
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-app.set("views", "path/to/views")
 
 //Middleware
 //Body parser gives us access to req.body

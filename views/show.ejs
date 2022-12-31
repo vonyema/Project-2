@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<%- include('./partials/head.ejs') %>
 </head>
+<%- include('./partials/header.ejs')%>
 <body>
-    
-</body>
+    <div class="wrapper">
+        <div><%=recipe.name%></div>
+        <div>
+            <img src="<%=recipe.img%>">
+        </div>
+        <div>
+            <h3>Ingredients</h3>
+            <ul>
+                <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                    <li class="list-group-item"><%= ingredients %></li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div>
+                <h3>Directions</h3>
+                <% recipe.recipe.forEach(function(recipe, index){ %>
+                    <li class="list-group-item"><%= recipe %></li>
+                    <% }) %>
+                </div>
+            </div>
+        </body>
+    <style>
+       img {
+        max-width: 50%;
+        height: auto;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 200px);
+    }
+
+    </style>
 </html>
