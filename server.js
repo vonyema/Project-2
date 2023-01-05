@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true}));
 //delete methodoverride
 app.use(methodOverride("_method"))
 //static middleware(images,css,css files)
-app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static('public'))
 //Routes/Controller
 const recipeController=require('./controllers/recipes.js')
 app.use('/recipeBook', recipeController)
