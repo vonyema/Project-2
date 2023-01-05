@@ -4,7 +4,7 @@ const app= express();
 const path = require('path');
 const methodOverride = require("method-override")
 require("dotenv").config()
-const recipe=require("./models/recipe.js")
+const Recipe=require("./models/recipe.js")
 
 //dependencies
 const mongoose= require("mongoose")
@@ -44,7 +44,7 @@ const client = new RecipeSearchClient({
   appKey: '55210688b858c7de3044364de93ee2ba'
 });
 app.get('/',(req,res)=>{
-  recipe.find({},(err,recipe)=>{
+  Recipe.find({},(err,recipe)=>{
     res.render('index.ejs',{recipe})
   })
 })
