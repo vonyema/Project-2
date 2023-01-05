@@ -42,7 +42,9 @@ const client = new RecipeSearchClient({
   appId: 'a8f27fcc',
   appKey: '55210688b858c7de3044364de93ee2ba'
 });
-
+app.get('/',(req,res)=>{
+  res.render('index.ejs')
+})
 //listener
 const PORT= process.env.PORT
 app.listen(PORT, ()=> {
