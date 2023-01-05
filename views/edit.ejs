@@ -1,45 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('./partials/head.ejs') %>
-</head>
-    <%- include("./partials/header.ejs")%>
-<body>
-    <form action="/recipeBook/<%=recipe._id%>?_method=PUT" method="POST">
-        <div class="col-12">
-            <h3>Name:</h3>
-            <div class="col-12">
-                <li class="list-group-item"><input type="text" name="name" class="form-control" value="<%=recipe.name%>"/></li>
-            </div>
-            <h3>Ingredients:</h3>
-            <div class="ingredientList">
-                <div class="ingredientsForm mb-1">
-                    <div class="col-12">
-                        <% recipe.ingredients.forEach(function(ingredients, index){ %>
-                            <li class="list-group-item"><input type="text" name="ingredients" class="form-control" value="<%=ingredients%>"></li>
-                        <% }) %>
-                    </div>
-                </div>
-            </div>
-            <h3>Directions:</h3>
-            <div class="directionList">
-                <div class="directionDiv mb-1"> 
-                    <div class="col-12">
-                        <% recipe.recipe.forEach(function(recipe, index){ %>
-                            <li class="list-group-item"><input type="text" name="recipe" class="form-control"value="<%=recipe%>"></li>
-                        <% }) %>
-                    </div>
-                </div>
-            </div>
-        </div>  
-            Add Image link <input type="text" name="img" /><br /><br />
-            <input type="submit"  value="Update Recipe'"/>
-        </form>
-    <form action="/recipeBook">
-        <input type="submit" value="Back" />
-    </form>  
-    <script>
-    </script>
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+    <%- include("./partials/header-index.ejs")%>
+    <body>
+        <form action="/recipeBook/<%=recipe._id%>?_method=PUT" method="POST">
+            <ul>
+                <div class="row-name">
+                    <div class="column">
+                            <h3>Name:</h3>
+                            <input class="list-group-item" type="text" name="name" class="form-control" value="<%=recipe.name%>"/>
+                        </div>
+                        <input type="submit"  value="Update Recipe"/>
+                        <div class="row">
+                            <div class="column-img">
+                                <img class="show-image"src="<%=recipe.img%>"> <br/><br/>
+                                Add Image link <input type="text" name="img" /><br /><br />
+                            </div>
+                            <div>
+                            </div>
+                            <div class="row-2">
+                                <div class="container-ingred">
+                                    <div class="column">
+                                        <h3>Ingredients:</h3>
+                                        <div class="ingredientList">
+                                            <div class="ingredientsForm mb-1">
+                                                <div class="col-12">
+                                                    <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                                                        <input class="list-group-item" type="text" name="ingredients" class="form-control" value="<%=ingredients%>">
+                                                        <% }) %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <h3>Directions:</h3>
+                                            <div class="directionList">
+                                                <div class="directionDiv mb-1"> 
+                                                    <div class="col-12">
+                                                        <% recipe.recipe.forEach(function(recipe, index){ %>
+                                                            <input class="list-group-item" type="text" name="recipe" class="form-control"value="<%=recipe%>">
+                                                            <% }) %>
+                                                        </div>
+                                                    </div>
+                                                </div>  
+                                                <ul>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        </form>
+
+    <style>
+                body{
+                    background: linear-gradient(90deg, rgba(237,53,5,1) 0%, rgba(237,132,7,1) 35%, rgba(93,47,3,1) 100%);
+                    font-family: Caveat Brush;
+                }
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-content: flex-start;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                }
+                .row{
+                    display:flex;
+                    gap:10px;
+                }
+                .row-2{
+                    display: flex;
+                    flex-direction: row;
+                    flex: 1 1 0;
+                    max-width: 75%;
+                    align-items: flex-start;
+                }
+                .column {
+                    padding: 1rem 0;
+                    flex: 1 1 0;
+                    border: double;
+                    background-color: white;
+                }
+                .column-img{
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    align-items: stretch
+                }
+                img{
+                    width: 500px;
+                    height: 500px;
+                }
+                h2{
+                    text-align: center;
+                }
+                ul{
+                    margin-right: 20px;
+
+                }
+                .list-group-item {
+                    margin: 20px;
+                }
+                h4 {
+                    text-align: center;
+                }
+                .list-group-item:last-child {
+                    width: 75%;
+                }
+                .row-name {
+                    display: flex;
+                    align-items: stretch;
+                }
+    </style>
     
 </body>
 </html>

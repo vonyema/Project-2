@@ -5,36 +5,88 @@
 </head>
 <%- include('./partials/header.ejs')%>
 <body>
-    <div class="wrapper">
-        <div><%=recipe.name%></div>
-        <div>
-            <img src="<%=recipe.img%>">
+    <div class="row">
+        <div class="column">
+            <h2>
+                <%=recipe.name%>
+            </h2>
         </div>
-        <div>
-            <h3>Ingredients</h3>
-            <ul>
-                <% recipe.ingredients.forEach(function(ingredients, index){ %>
-                    <li class="list-group-item"><%= ingredients %></li>
+    <div>
+    <div class="row-3">
+        <div class="column-img">
+            <img class="show-image"src="<%=recipe.img%>">
+        </div>
+    </div>
+    <div class="row-2">
+        <div class="container-ingred">
+            <div class="column">
+                <h4>Ingredients</h4>
+                <ul>
+                    <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                        <li class="list-group-item"><%= ingredients %></li>
                     <% }) %>
                 </ul>
             </div>
-            <div>
-                <h3>Directions</h3>
+        <div class="column">
+            <h4>Directions</h4>
+            <ul>
                 <% recipe.recipe.forEach(function(recipe, index){ %>
                     <li class="list-group-item"><%= recipe %></li>
-                    <% }) %>
-                </div>
-            </div>
-        </body>
-    <style>
-       img {
-        max-width: 50%;
-        height: auto;
-    }
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 200px);
-    }
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+            <style>
+                body{
+                    background: linear-gradient(90deg, rgba(237,53,5,1) 0%, rgba(237,132,7,1) 35%, rgba(93,47,3,1) 100%);
+                }
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-content: flex-start;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                }
+                .row{
+                    display:flex;
+                    gap:10px;
+                }
+                .row-2{
+                    display: flex;
+                    flex-direction: row;
+                    flex: 1 1 0;
+                    max-width: 75%;
+                    align-items: flex-start;
+                }
+                .column{
+                    padding: 1rem 0;
+                    flex: 1 1 0;
+                    border: double;
+                    background-color: white;
+                }
+                .column-img{
+                    display: flex;
+                    justify-content: space-around;
 
-    </style>
+                }
+                img{
+                    width: 500px;
+                    height: 500px;
+                }
+                h2{
+                    text-align: center;
+                }
+                ul{
+                    margin-right: 20px;
+
+                }
+                .list-group-item {
+                    margin: 20px;
+                }
+                h4 {
+                    text-align: center;
+                }
+            </style>
+        </body>
 </html>

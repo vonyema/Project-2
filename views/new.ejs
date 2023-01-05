@@ -14,7 +14,7 @@
             <h3>Ingredients:</h3>
             <small>Example: Ice</small>
             <div class="ingredientList">
-                <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn" name="recipe">+ Ingredients</button>
+                <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn" name="recipe">+ Ingredients</button><br/><br/>
                 <div class="ingredientsForm mb-1">
                     <div class="col-12">
                         <input type="text" name="ingredients" class="form-control">
@@ -24,7 +24,8 @@
             <h3>Directions:</h3>
             <small>Example: Add pasta to salted water</small>
             <div class="directionList">
-                <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn" name="recipe">+ Directions</button>
+                <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn" name="recipe">+ Directions</button><br/>
+            </br>
                 <div class="directionDiv mb-1">          
                     <div class="col-12">
                         <input type="text" name="recipe" class="form-control">
@@ -32,12 +33,11 @@
                 </div>
             </div>
         </div>  
-            Add Image link <input type="text" name="img" /><br /><br />
-            <input type="submit"  value="Add A Recipe"/>
+            <h4>
+                Add Image link <input type="text" name="img" /><br /><br />
+            </h4>
+            <input type="submit" class="btn btn-outline-primary" value="Add A Recipe"/>
         </form>
-    <form action="/recipeBook">
-        <input type="submit" value="Back" />
-    </form>  
     <script>
         let addIngredientsBtn = document.getElementById('addIngredientsBtn');
         let ingredients = document.querySelector('.ingredientList');
@@ -61,6 +61,18 @@
             directions.appendChild(newDirection);
         });
     </script>
+    <style>
+        body{
+            background: linear-gradient(90deg, rgba(237,53,5,1) 0%, rgba(237,132,7,1) 35%, rgba(93,47,3,1) 100%);
+        }
+        [type=button],[type=submit]{
+            background-color: white;
+        }
+        .form-control{
+            width: 75%
+        }
+    </style>
+    
     
 </body>
 </html>

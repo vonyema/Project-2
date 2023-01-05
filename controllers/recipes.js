@@ -28,9 +28,12 @@ recipeRouter.get('/', (req,res)=> {
         }
     })
 })
+recipeRouter.get("/aboutMe",(req,res)=>{
+    res.render('about.ejs',{recipe})
+})
 //New
 recipeRouter.get('/new',(req,res)=>{
-    res.render('new.ejs')
+    res.render('new.ejs',{recipe})
 
 })
 //Delete

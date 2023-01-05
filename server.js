@@ -1,6 +1,7 @@
 //Dependencies
 const express=require("express");
 const app= express();
+const path = require('path');
 const methodOverride = require("method-override")
 require("dotenv").config()
 
@@ -28,10 +29,19 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true}));
 //delete methodoverride
 app.use(methodOverride("_method"))
+//static middleware(images,css,css files)
+app.use(express.static(__dirname + '/css'));
 //Routes/Controller
 const recipeController=require('./controllers/recipes.js')
 app.use('/recipeBook', recipeController)
 app.use(express.static('public'))
+
+const { RecipeSearchClient } = require('edamam-api');
+
+const client = new RecipeSearchClient({
+  appId: 'a8f27fcc',
+  appKey: '55210688b858c7de3044364de93ee2ba'
+});
 
 //listener
 const PORT= process.env.PORT

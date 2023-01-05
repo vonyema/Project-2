@@ -1,0 +1,42 @@
+    html{ 
+        display: block;
+        color: blue
+    }
+    img {
+        max-width:50%;
+        height: auto;
+    }
+    .site-header {
+        width: 960px;
+	max-width: 100%;
+	padding: 20px;
+	margin: 0 auto;
+    }
+    .main-header .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+    }
+
+    .main-nav li {
+	display: inline;
+    }
+    .show-image p {
+        max-width: 50%;
+        height: auto;
+    }
+    .wrapper p {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 200px);
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+    
+    
+
