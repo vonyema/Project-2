@@ -4,6 +4,7 @@ const app= express();
 const path = require('path');
 const methodOverride = require("method-override")
 require("dotenv").config()
+const recipe=require("./models/recipe.js")
 
 //dependencies
 const mongoose= require("mongoose")
