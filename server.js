@@ -31,11 +31,11 @@ app.use(express.urlencoded({ extended: true}));
 //delete methodoverride
 app.use(methodOverride("_method"))
 //static middleware(images,css,css files)
-app.use(express.static('public'))
+app.use(express.static('.'))
 //Routes/Controller
 const recipeController=require('./controllers/recipes.js')
 app.use('/recipeBook', recipeController)
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
 const { RecipeSearchClient } = require('edamam-api');
 
