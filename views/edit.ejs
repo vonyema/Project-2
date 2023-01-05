@@ -5,6 +5,7 @@
     </head>
     <%- include("./partials/header-index.ejs")%>
     <body>
+        <form action="/recipeBook/<%=recipe._id%>?_method=DELETE" method="POST">
         <form action="/recipeBook/<%=recipe._id%>?_method=PUT" method="POST">
             <ul>
                 <div class="row-name">
@@ -12,45 +13,47 @@
                             <h3>Name:</h3>
                             <input class="list-group-item" type="text" name="name" class="form-control" value="<%=recipe.name%>"/>
                         </div>
-                        <input type="submit"  value="Update Recipe"/>
-                        <div class="row">
-                            <div class="column-img">
-                                <img class="show-image"src="<%=recipe.img%>"> <br/><br/>
-                                Add Image link <input type="text" name="img" /><br /><br />
-                            </div>
-                            <div>
-                            </div>
-                            <div class="row-2">
-                                <div class="container-ingred">
-                                    <div class="column">
-                                        <h3>Ingredients:</h3>
-                                        <div class="ingredientList">
-                                            <div class="ingredientsForm mb-1">
-                                                <div class="col-12">
-                                                    <% recipe.ingredients.forEach(function(ingredients, index){ %>
-                                                        <input class="list-group-item" type="text" name="ingredients" class="form-control" value="<%=ingredients%>">
-                                                        <% }) %>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <input type="submit" value="DELETE" />
+                            <input type="submit"  value="Update Recipe"/>
+                            <div class="row">
+                                <div class="column-img">
+                                    <img class="show-image"src="<%=recipe.img%>"> <br/><br/>
+                                    Add Image link <input type="text" name="img" /><br /><br />
+                                </div>
+                                <div>
+                                </div>
+                                <div class="row-2">
+                                    <div class="container-ingred">
                                         <div class="column">
-                                            <h3>Directions:</h3>
-                                            <div class="directionList">
-                                                <div class="directionDiv mb-1"> 
+                                            <h3>Ingredients:</h3>
+                                            <div class="ingredientList">
+                                                <div class="ingredientsForm mb-1">
                                                     <div class="col-12">
-                                                        <% recipe.recipe.forEach(function(recipe, index){ %>
-                                                            <input class="list-group-item" type="text" name="recipe" class="form-control"value="<%=recipe%>">
+                                                        <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                                                            <input class="list-group-item" type="text" name="ingredients" class="form-control" value="<%=ingredients%>">
                                                             <% }) %>
                                                         </div>
                                                     </div>
-                                                </div>  
-                                                <ul>
                                                 </div>
                                             </div>
-                                            
-                                        </div>
+                                            <div class="column">
+                                                <h3>Directions:</h3>
+                                                <div class="directionList">
+                                                    <div class="directionDiv mb-1"> 
+                                                        <div class="col-12">
+                                                            <% recipe.recipe.forEach(function(recipe, index){ %>
+                                                                <input class="list-group-item" type="text" name="recipe" class="form-control"value="<%=recipe%>">
+                                                                <% }) %>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                    <ul>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
                                         </form>
+                                    </form>
 
     <style>
                 body{
